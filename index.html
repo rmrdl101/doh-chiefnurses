@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <link href="http://nims/storage/design/images/favicon.png" rel="icon" />
+
+    <link href="./assets/css" rel="stylesheet"/>
+    <link href="./assets/aos.css" rel="stylesheet"/>
+    <link href="./assets/bootstrap.min.css" rel="stylesheet"/>
+    <link href="./assets/bootstrap-icons.css" rel="stylesheet"/>
+    <link href="./assets/boxicons.min.css" rel="stylesheet"/>
+    <link href="./assets/glightbox.min.css" rel="stylesheet"/>
+    <link href="./assets/swiper-bundle.min.css" rel="stylesheet"/>
+    <link href="./assets/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./assets/stylesheets"/> 
+  </head>
+
+  <body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0" style="height: 100vh;">
+    <section id="hero" class="d-flex align-items-center background-image">
+      <div id="chief-nurses-container" class="container">
+        <!-- Chief nurse information will be displayed here -->
+        <img src="./assets/images/dohcno.png" class="img-fluid" alt="" width="100%" />
+      </div>
+      <!-- <div class="container">
+        <div class="row gy-4" class="img-fluid aos-init aos-animate" alt="" data-aos="zoom-in">
+          <div
+            class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center "
+          > 
+          <img
+            src="./assets/images/Picture2.png"
+            class="img-fluid"
+            alt=""
+            width="300px"
+          />
+          <h1 id="chief-nurse-name">Edwin C. Maniago, R.N.</h1>
+          <h2 id="chief-nurse-title">Chief Nurse / Nurse VII</h2>
+          <h2 id="chief-nurse-hospital">Jose B. Lingad Memorial General Hospital</h2>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img" style="text-align:  right;">
+            <img
+              src="./assets/images/Picture1.png"
+              class="img-fluid animated"
+              alt=""
+            />
+          </div>
+        </div>
+      </div> -->
+    </section>
+
+    <main id="main"></main>
+
+    <!-- Vendor JS Files -->
+    <script src="./assets/aos.js.download"></script>
+    <script src="./assets/bootstrap.bundle.min.js.download"></script>
+    <script src="./assets/glightbox.min.js.download"></script>
+    <script src="./assets/isotope.pkgd.min.js.download"></script>
+    <script src="./assets/swiper-bundle.min.js.download"></script>
+    <script src="./assets/validate.js.download"></script>
+
+    <!-- Template Main JS File -->
+    <script src="./assets/main.js.download"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+      let chiefNursesData; // Variable to hold the chief nurses data
+
+      function displayChiefNurse(index) {
+        const chiefNurseContainer = $('#chief-nurses-container');
+        const chiefNurse = chiefNursesData[index];
+        let profile = chiefNurse.image;
+        let logo = chiefNurse.logo;
+
+        if (profile === null) {
+            profile = '';
+        }
+        if (logo === null) {
+            logo = '';
+        }
+      
+        // Clear previous content
+        chiefNurseContainer.empty();
+      
+        // Display the chief nurse
+        const chiefNurseHtml = `
+          <div class="chief-nurse-info">
+            <div class="row gy-4" class="img-fluid aos-init aos-animate" alt="" data-aos="zoom-in">
+              <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center "> 
+                <img src="`+profile+`" class="img-fluid" alt="" width="500px" />
+                <h1>`+chiefNurse.name+`</h1>
+                <h3>`+chiefNurse.suffixes+`</h3>
+                <h2 style="margin-top:-2px">`+chiefNurse.position+`</h2>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 hero-img" style="text-align:  right;">
+                <img src="`+logo+`" class="img-fluid animated" alt="" />
+            </div>
+          </div>
+        `;
+        chiefNurseContainer.append(chiefNurseHtml);
+      }
+      
+      function displayChiefNursesSequentially() {
+        let index = 0;
+        const totalChiefNurses = chiefNursesData.length;
+      
+        const intervalId = setInterval(() => {
+          if (index < totalChiefNurses) {
+            displayChiefNurse(index);
+            index++;
+          } else {
+            clearInterval(intervalId); // Stop the interval when all chief nurses are displayed
+          }
+        }, 1000); // Display each chief nurse for 3 seconds, adjust as needed
+      }
+      
+      function getChiefNurses() {
+        $.ajax({
+          url: 'http://127.0.0.1/nims/doh-chief-nurses',
+          method: 'GET',
+          success: function(data) {
+            chiefNursesData = data.data;
+            displayChiefNursesSequentially();
+          },
+          error: function(xhr, status, error) {
+            console.error('Error fetching chief nurse data:', error);
+          }
+        });
+      }
+      
+      // Call the function to fetch and display data
+      getChiefNurses();
+      
+    </script>
+  </body>
+</html>
