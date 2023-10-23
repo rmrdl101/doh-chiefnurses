@@ -10,13 +10,69 @@
     <link href="./assets/aos.css" rel="stylesheet"/>
     <link href="./assets/bootstrap.min.css" rel="stylesheet"/>
     <link href="./assets/style.css" rel="stylesheet"/>
+    <style>
+      .background-image {
+        
+        background-image: url('./assets/images/bg.webp');
+        
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+      }
+      section {
+        padding: 60px 60px 0px 60px!important;
+      }
+      .container {
+        padding-bottom: 50px;
+      }
+      .bw-stroke {
+        -webkit-text-stroke: 2px white; /* For WebKit-based browsers like Chrome and Safari */
+        text-stroke: 2px white; /* Standard property for Firefox and some other browsers */
+        color: darkgreen!important; /* Fill color of the text */
+      }
+    </style>
   </head>
 
-  <body data-aos-easing="ease-in-out" style="height: 100vh;">
-    <section id="hero" class="d-flex align-items-center background-image">
-      <div id="chief-nurses-container" class="container" style="margin-top: 185px;">
+  <body data-aos-easing="ease-in-out" style="height: 100vh;" class="background-image background">
+    
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <section>
+      <div class="row">
+        <div class="text-center" style="
+        flex: 0 0 auto;
+        width: 11.666667%;">
+          <img src="./assets/images/DOH.png" class="img-fluid" style="margin-left: 5px;" alt="" width="200px" />
+        </div>
+        <div class="col-md-10" style="padding: 50px 0px 50px 0px;">
+            <p style="font-size: 2em;">Department of Health</p>
+            <p style="font-size: 2em; font-weight:bolder;margin-top: -24px">HEALTH FACILITY DEVELOPMENT BUREAU</span>
+        </div>
+      </div>
+    </section>
+    <section id="hero" class="align-items-center">
+      <div id="chief-nurses-container" class="container">
         <!-- Chief nurse information will be displayed here -->
-        <img src="./assets/images/dohcno.png" class="img-fluid" alt="" width="100%" />
+        <img src="./assets/images/dohcno.webp" alt="" width="100%" style="margin-top: -125px;" />
       </div>
     </section>
 
@@ -57,9 +113,9 @@
             <div class="row gy-4" class="img-fluid aos-init aos-animate" alt="" data-aos="zoom-in">
               <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center "> 
                 <img src="`+profile+`" class="img-fluid" alt="" width="500px" />
-                <h1>`+chiefNurse.name+`</h1>
+                <h1 class="bw-stroke">`+chiefNurse.name+`</h1>
                 <h3>`+chiefNurse.suffixes+`</h3>
-                <h2 style="margin-top:-2px">`+chiefNurse.position+`</h2>
+                <h2 style="margin-top:-2px; color:black!important">`+chiefNurse.position+`</h2>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 hero-img" style="text-align:  right;">
                 <img src="`+logo+`" class="img-fluid animated" alt="" />
