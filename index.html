@@ -13,7 +13,7 @@
     <style>
       .background-image {
         
-        background-image: url('./assets/images/bg.webp');
+        background-image: url('./assets/images/bg2.webp');
         
         background-size: cover;
         background-repeat: no-repeat;
@@ -31,6 +31,12 @@
         text-stroke: 2px white; /* Standard property for Firefox and some other browsers */
         color: darkgreen!important; /* Fill color of the text */
       }
+      .cblogo {
+        max-width: 150%!important;
+      }
+      .cbtittle{background: #235b00;padding: 10px; border-radius: 10px;
+    width: 925px!important;
+    margin-left: -210px;}
     </style>
   </head>
 
@@ -62,7 +68,7 @@
         <div class="text-center" style="flex: 0 0 auto;width: 11.666667%;">
           <img src="./assets/images/DOH.png" class="img-fluid" style="margin-left: 5px;" alt="" width="200px" />
         </div>
-        <div class="col-md-10" style="padding: 50px 0px 50px 0px;">
+        <div class="col-md-10" style="padding: 45px 0px 50px 0px;">
             <p style="font-size: 2em;">Department of Health</p>
             <p style="font-size: 2em; font-weight:bolder;margin-top: -24px">HEALTH FACILITY DEVELOPMENT BUREAU</span>
         </div>
@@ -70,13 +76,33 @@
     </section>
 
     <section id="hero" class="align-items-center" style="padding-top: 0px!important;">
-      <div id="chief-nurses-container" class="container">
-        <!-- Chief nurse information will be displayed here -->
-        <img src="./assets/images/dohcno.webp" alt="" width="100%" style="margin-top: -125px;" />
+      <div class="container">
+        <div class="chief-nurse-info">
+          <div class="row gy-4" class="img-fluid aos-init aos-animate" alt="" data-aos="zoom-in">
+            <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center"> 
+              <div class="cbtittle">
+                <h1 class="text-white">CAPACITY BUILDING</h1>
+                <h3 class="text-white">
+                  ON STRENGTHENING THE IMPLEMENTATION OF HEALTH FACILITY RELATED POLICIES AND STANDARDS IN THE NURSING SERVICE OF DOH HOSPITALS
+                </h3>
+              </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" style="text-align:  right;">
+              <img src="./assets/images/cblogo.png" class="img-fluid animated cblogo" alt="" />
+            </div>
+            
+          
+            <div class="col-12 order-3 order-lg-3" style="font-size: 2em; margin-left: -500px;">
+              <div style="background: white; text-align: right;padding: 20px; margin-top: -135px; border-radius: 10px;">
+                October 26-27, 2023 | Noble Cebu Hotel, Cebu City
+              </div>
+            </div>
+        </div>
       </div>
     </section>
 
-    <main id="main"></main>
+    <main id="main">
+    </main>
 
     <!-- Vendor JS Files -->
     <script src="./assets/aos.js"></script>
@@ -87,75 +113,5 @@
     <!-- Template Main JS File -->
     <script src="./assets/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <script>
-      let chiefNursesData; // Variable to hold the chief nurses data
-
-      function displayChiefNurse(index) {
-        const chiefNurseContainer = $('#chief-nurses-container');
-        const chiefNurse = chiefNursesData[index];
-        let profile = chiefNurse.image;
-        let logo = chiefNurse.logo;
-
-        if (profile === null) {
-            profile = '';
-        }
-        if (logo === null) {
-            logo = '';
-        }
-      
-        // Clear previous content
-        chiefNurseContainer.empty();
-      
-        // Display the chief nurse
-        const chiefNurseHtml = `
-          <div class="chief-nurse-info">
-            <div class="row gy-4" class="img-fluid aos-init aos-animate" alt="" data-aos="zoom-in">
-              <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center "> 
-                <img src="`+profile+`" class="img-fluid" alt="" width="500px" />
-                <h1 class="bw-stroke">`+chiefNurse.name+`</h1>
-                <h3>`+chiefNurse.suffixes+`</h3>
-                <h2 style="margin-top:-2px; color:black!important">`+chiefNurse.position+`</h2>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 hero-img" style="text-align:  right;">
-                <img src="`+logo+`" class="img-fluid animated" alt="" />
-            </div>
-          </div>
-        `;
-        chiefNurseContainer.append(chiefNurseHtml);
-      }
-      
-      function displayChiefNursesSequentially() {
-        let index = 0;
-        const totalChiefNurses = chiefNursesData.length;
-      
-        const intervalId = setInterval(() => {
-          if (index < totalChiefNurses) {
-            displayChiefNurse(index);
-            index++;
-          } else {
-            clearInterval(intervalId); // Stop the interval when all chief nurses are displayed
-          }
-        }, 3500); // Display each chief nurse for 3 seconds, adjust as needed
-      }
-      
-      function getChiefNurses() {
-        $.ajax({
-          url: 'http://127.0.0.1/nims/doh-chief-nurses',
-          method: 'GET',
-          success: function(data) {
-            chiefNursesData = data.data;
-            displayChiefNursesSequentially();
-          },
-          error: function(xhr, status, error) {
-            console.error('Error fetching chief nurse data:', error);
-          }
-        });
-      }
-      
-      // Call the function to fetch and display data
-      getChiefNurses();
-      
-    </script>
   </body>
 </html>
