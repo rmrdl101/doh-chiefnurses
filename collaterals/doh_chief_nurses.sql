@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : NIMS [test]
+ Source Server         : NIMS Test Server
  Source Server Type    : MySQL
  Source Server Version : 50731 (5.7.31)
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50731 (5.7.31)
  File Encoding         : 65001
 
- Date: 24/10/2023 07:31:36
+ Date: 25/10/2023 08:12:30
 */
 
 SET NAMES utf8mb4;
@@ -109,10 +109,10 @@ INSERT INTO `doh_chief_nurses` VALUES (67, 'Juvelyn Teo-Tan', 'MAN, RN', 'Nurse 
 INSERT INTO `doh_chief_nurses` VALUES (68, 'Maureen Templo', 'MAN, RN', 'Chief Nurse', 'Talavera General Hospital', '3', './assets/images/cn/templo.png', './assets/images/logo/tgh.png', NULL, NULL, NULL);
 INSERT INTO `doh_chief_nurses` VALUES (69, 'Ma.Laline V. Verances', 'RN', 'Nurse VII', 'Tondo Medical Center', 'NCR', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `doh_chief_nurses` VALUES (70, 'Ruby S. Gurrea', 'RN', 'Chief Nurse', 'Valenzuela Medical Center', 'NCR', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `doh_chief_nurses` VALUES (71, 'Marx Franco S. Valencia ', 'RN', 'Nurse VII', 'Vicente Sotto Memorial Medical Center ', '7', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `doh_chief_nurses` VALUES (71, 'Marx Franco S. Valencia ', 'RN', 'Nurse VII', 'Vicente Sotto Memorial Medical Center ', '7', './assets/images/cn/valencia.png', './assets/images/logo/vsmmc.png', NULL, NULL, NULL);
 INSERT INTO `doh_chief_nurses` VALUES (72, 'Harby O. Abellanosa', 'MSN, RN, CESE, FPSQUA, FPCHA, FANSAP', 'Chief Nurse - Nurse VII', 'Cebu South Medical Center', '7', './assets/images/cn/abellanosa.png', './assets/images/logo/csmc.png', NULL, NULL, NULL);
 INSERT INTO `doh_chief_nurses` VALUES (73, 'Rose Karen P. Hijosa', 'RN', 'Nurse VI-OIC, Chief Nurse', 'Western Visayas Medical Center', '6', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `doh_chief_nurses` VALUES (74, 'MA. Eloisa S. Penado', 'MAN, RN', 'Chief Nurse', 'Western Visayas Sanitarium and General Hospital', '6', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `doh_chief_nurses` VALUES (74, 'MA. Eloisa S. Penado', 'MAN, RN', 'Chief Nurse', 'Western Visayas Sanitarium and General Hospital', '6', './assets/images/cn/penado.png', './assets/images/logo/wvsgh.png', NULL, NULL, NULL);
 INSERT INTO `doh_chief_nurses` VALUES (75, 'Arlene C. Navarro', 'MAN, RN', 'Chief Nurse', 'Bataan General Hospital Medical Center', '3', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `doh_chief_nurses` VALUES (76, 'Evangeline C. Castro', 'MAN, RN, MPH, MGM', 'Chief Nurse', 'Batanes General Hospital', '2', './assets/images/cn/castro.png', './assets/images/logo/bgh.png', NULL, NULL, NULL);
 
